@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SelectedTestViewController.swift
 //  TimeToThink
 //
 //  Created by Savonevich Constantine on 5/5/19.
@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SelectedTestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
 }
 
+extension SelectedTestViewController {
+    @IBAction func backToMainScreen() {
+        dismiss(animated: true, completion: nil)
+    }
+}
