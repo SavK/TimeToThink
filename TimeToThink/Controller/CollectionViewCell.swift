@@ -16,6 +16,17 @@ class CollectionViewCell: UICollectionViewCell {
     // load data into cell from Menu.swift
     var menu: Menu? {
         didSet {
+            
+            // resize labels relative to screen size
+            if (self.bounds.width * 2) + (3 * 20) > 320 {
+                emoji.font = UIFont(name: nameOfQuestion.font.fontName,
+                                    size: 65)
+                nameOfQuestion.font = UIFont(name: nameOfQuestion.font.fontName,
+                                             size: 17)
+                 nameOfCountQuestions.font = UIFont(name: nameOfCountQuestions.font.fontName,
+                                                    size: 11)
+            }
+            
             emoji.text = menu?.emoji
             nameOfQuestion.text = menu?.nameOfQuestion
             if var name = menu?.nameOfCountQuestions {
