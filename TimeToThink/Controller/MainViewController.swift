@@ -9,15 +9,16 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
+    
 }
 
 // MARK: - unwind from FinishTestViewController
@@ -26,6 +27,7 @@ extension MainViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -47,14 +49,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.layer.shadowOpacity = 1.0
             cell.layer.masksToBounds = false
             
-           cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds,
-                                                cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-
-        return cell
-    }
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds,
+                                                 cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+            
+            return cell
+        }
         return UICollectionViewCell()
     }
     
+    // perform to send index of selected cell to DetailTestViewController
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCellIndex = indexPath.row
+        self.performSegue(withIdentifier: "detailTestViewController", sender: selectedCellIndex)
+    }
 }
 
 // MARK: - customizing of cell sizes (relative to screen size)
@@ -80,5 +87,20 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     {
         let sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         return sectionInset
+    }
+}
+
+// MARK: - send data of selected cell to DetailTestViewController
+extension MainViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailTestViewController" {
+            guard let destinationNC = segue.destination as? UINavigationController
+                else { return }
+            guard let detailTestVC = destinationNC.topViewController as? DetailTestViewController
+                else { return }
+            let selectedCellIndex = sender as! Int
+            detailTestVC.menu = Menu.loadData()[selectedCellIndex]
+            detailTestVC.detailTest = DetailTest.loadData()[selectedCellIndex]
+        }
     }
 }

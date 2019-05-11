@@ -23,8 +23,8 @@ class CollectionViewCell: UICollectionViewCell {
                                     size: 65)
                 nameOfQuestion.font = UIFont(name: nameOfQuestion.font.fontName,
                                              size: 17)
-                 nameOfCountQuestions.font = UIFont(name: nameOfCountQuestions.font.fontName,
-                                                    size: 11)
+                nameOfCountQuestions.font = UIFont(name: nameOfCountQuestions.font.fontName,
+                                                   size: 11)
             }
             
             emoji.text = menu?.emoji

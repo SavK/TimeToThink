@@ -21,13 +21,13 @@ extension Menu {
                  nameOfCountQuestions: "ВОПРОСОВ: ",
                  countOfQuestions: 10
             ),
-            Menu(emoji: "🤼‍♂️",
+            Menu(emoji: "💪",
                  nameOfQuestion: "Какой вид спорта - твой?",
                  nameOfCountQuestions: "ВОПРОСОВ: ",
                  countOfQuestions: 12
             ),
             Menu(emoji: "🦁",
-                 nameOfQuestion: "Какое ты животное?",
+                 nameOfQuestion: "Кто ты из мира животных?",
                  nameOfCountQuestions: "ВОПРОСОВ: ",
                  countOfQuestions: 5
             ),
