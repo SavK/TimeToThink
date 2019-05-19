@@ -12,13 +12,16 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+}
+
+// MARK: - UIViewcontroller methods
+extension MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
 }
 
 // MARK: - unwind from FinishTestViewController
@@ -57,7 +60,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return UICollectionViewCell()
     }
     
-    // perform to send index of selected cell to DetailTestViewController
+    // send index of selected cell to DetailTestViewController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCellIndex = indexPath.row
         self.performSegue(withIdentifier: "detailTestViewController", sender: selectedCellIndex)
@@ -90,17 +93,20 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - send data of selected cell to DetailTestViewController
+// MARK: - prepare for send data of selected cell to DetailTestViewController
 extension MainViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailTestViewController" {
-            guard let destinationNC = segue.destination as? UINavigationController
-                else { return }
-            guard let detailTestVC = destinationNC.topViewController as? DetailTestViewController
-                else { return }
-            let selectedCellIndex = sender as! Int
-            detailTestVC.menu = Menu.loadData()[selectedCellIndex]
-            detailTestVC.detailTest = DetailTest.loadData()[selectedCellIndex]
-        }
+        
+        guard segue.identifier == "detailTestViewController" else { return }
+        guard let destinationNC = segue.destination as? UINavigationController
+            else { return }
+        guard let detailTestVC = destinationNC.topViewController as? DetailTestViewController
+            else { return }
+        let selectedCellIndex = sender as! Int
+        ///load data of selected test
+        detailTestVC.menu = Menu.loadData()[selectedCellIndex]
+        detailTestVC.detailTest = DetailTest.loadData()[selectedCellIndex]
+        /// index of selected test
+        detailTestVC.currentTestIndex = selectedCellIndex
     }
 }

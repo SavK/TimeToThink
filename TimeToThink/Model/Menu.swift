@@ -8,8 +8,7 @@
 
 struct Menu {
     var emoji: String?
-    var nameOfQuestion: String?
-    var nameOfCountQuestions: String?
+    var nameOfTest: String?
     var countOfQuestions: Int?
 }
 
@@ -17,24 +16,20 @@ extension Menu {
     static func loadData() -> [Menu] {
         return [
             Menu(emoji: "🚗",
-                 nameOfQuestion: "Какое авто тебе подходит?",
-                 nameOfCountQuestions: "ВОПРОСОВ: ",
-                 countOfQuestions: 10
+                 nameOfTest: "Какое авто тебе подходит?",
+                 countOfQuestions: SelectedTestType.car.countOfQuestions
             ),
             Menu(emoji: "💪",
-                 nameOfQuestion: "Какой вид спорта - твой?",
-                 nameOfCountQuestions: "ВОПРОСОВ: ",
-                 countOfQuestions: 12
+                 nameOfTest: "Какой вид спорта - твой?",
+                 countOfQuestions: SelectedTestType.sport.countOfQuestions
             ),
             Menu(emoji: "🦁",
-                 nameOfQuestion: "Кто ты из мира животных?",
-                 nameOfCountQuestions: "ВОПРОСОВ: ",
-                 countOfQuestions: 5
+                 nameOfTest: "Кто ты из мира животных?",
+                 countOfQuestions: SelectedTestType.animal.countOfQuestions
             ),
             Menu(emoji: "🍕",
-                 nameOfQuestion: "Какая твоя любимая пицца?",
-                 nameOfCountQuestions: "ВОПРОСОВ: ",
-                 countOfQuestions: 8
+                 nameOfTest: "Какая твоя любимая пицца?",
+                 countOfQuestions: SelectedTestType.pizza.countOfQuestions
             )
         ]
     }

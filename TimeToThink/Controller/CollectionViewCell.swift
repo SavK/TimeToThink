@@ -10,8 +10,8 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var emoji: UILabel!
-    @IBOutlet weak var nameOfQuestion: UILabel!
-    @IBOutlet weak var nameOfCountQuestions: UILabel!
+    @IBOutlet weak var nameOfTest: UILabel!
+    @IBOutlet weak var countOfQuestions: UILabel!
     
     // load data into cell from Menu.swift
     var menu: Menu? {
@@ -19,20 +19,17 @@ class CollectionViewCell: UICollectionViewCell {
             
             // resize labels relative to screen size
             if (self.bounds.width * 2) + (3 * 20) > 320 {
-                emoji.font = UIFont(name: nameOfQuestion.font.fontName,
+                emoji.font = UIFont(name: nameOfTest.font.fontName,
                                     size: 65)
-                nameOfQuestion.font = UIFont(name: nameOfQuestion.font.fontName,
+                nameOfTest.font = UIFont(name: nameOfTest.font.fontName,
                                              size: 17)
-                nameOfCountQuestions.font = UIFont(name: nameOfCountQuestions.font.fontName,
-                                                   size: 11)
+                countOfQuestions.font = UIFont(name: countOfQuestions.font.fontName,
+                                               size: 11)
             }
             
             emoji.text = menu?.emoji
-            nameOfQuestion.text = menu?.nameOfQuestion
-            if var name = menu?.nameOfCountQuestions {
-                name += "\(menu?.countOfQuestions ?? 0)"
-                nameOfCountQuestions.text = name
-            }
+            nameOfTest.text = menu?.nameOfTest
+            countOfQuestions.text = "ВОПРОСОВ: \(menu?.countOfQuestions ?? 0)"
         }
     }
 }

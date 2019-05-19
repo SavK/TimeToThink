@@ -9,13 +9,20 @@
 import UIKit
 
 class DetailTestViewController: UIViewController {
+    
+    // MARK: - IB Outlets
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var previewTextLabel: UILabel!
     @IBOutlet weak var emojiNC: UIButton!
     
+    // MARK: - Model declaration
     var detailTest: DetailTest?
     var menu: Menu?
+    
+    
+    // MARK: - Stored Properties
+    var currentTestIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +44,7 @@ extension DetailTestViewController {
         guard let imageName = detailTest?.imageName else { return }
         previewImage.image = UIImage(named: imageName)
         previewTextLabel.text = detailTest?.previewText
-        self.title = menu?.nameOfQuestion
+        self.title = menu?.nameOfTest
         emojiNC.setTitle(menu?.emoji, for: .normal)
     }
 }
@@ -54,6 +61,7 @@ extension DetailTestViewController {
     @IBAction func unwindToDetailTestVC(segue: UIStoryboardSegue){ }
 }
 
+// MARK: - change font size
 extension DetailTestViewController {
     func changeFontSize(width: CGFloat) {
         if width > 320 {
@@ -70,5 +78,19 @@ extension DetailTestViewController {
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
             emojiNC.titleLabel?.font = font
         }
+    }
+}
+
+extension DetailTestViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "runTestSegue" {
+            guard let testVC = segue.destination as? TestViewController
+                else { return }
+            testVC.currentTestIndex = currentTestIndex
+        }
+    }
+    @IBAction func startButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "runTestSegue", sender: nil)
     }
 }
