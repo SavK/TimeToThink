@@ -49,18 +49,6 @@ extension DetailTestViewController {
     }
 }
 
-// MARK: - back to MainViewController
-extension DetailTestViewController {
-    @IBAction func backToMainScreen() {
-        dismiss(animated: true, completion: nil)
-    }
-}
-
-// MARK: - unwind from TestViewController
-extension DetailTestViewController {
-    @IBAction func unwindToDetailTestVC(segue: UIStoryboardSegue){ }
-}
-
 // MARK: - change font size
 extension DetailTestViewController {
     func changeFontSize(width: CGFloat) {
@@ -81,6 +69,7 @@ extension DetailTestViewController {
     }
 }
 
+// MARK: - Navigation
 extension DetailTestViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,9 +77,18 @@ extension DetailTestViewController {
             guard let testVC = segue.destination as? TestViewController
                 else { return }
             testVC.currentTestIndex = currentTestIndex
+            testVC.menu = menu
         }
     }
     @IBAction func startButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "runTestSegue", sender: nil)
+    }
+    
+    // MARK: - unwind from TestViewController
+    @IBAction func unwindToDetailTestVC(segue: UIStoryboardSegue){ }
+    
+    // MARK: - back to MainViewController
+    @IBAction func backToMainScreen() {
+        dismiss(animated: true, completion: nil)
     }
 }

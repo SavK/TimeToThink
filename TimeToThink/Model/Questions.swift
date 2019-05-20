@@ -52,36 +52,36 @@ extension Questions {
             
             // MARK: - Questions for selectedTestType.sport
             Questions(
-                text: "Какую пищу предпочитаете?",
+                text: "Cколько времени вы сможете уделять спорту?",
                 responseType: .single,
                 answers: [
-                    Answers(text: "Стейк", answerType: .sportSwimming),
-                    Answers(text: "Рыба", answerType: .sportFootball),
-                    Answers(text: "Морковка", answerType: .sportHockey),
-                    Answers(text: "Кукуруза", answerType: .sportChess),
-                    Answers(text: "Кукуруза", answerType: .sportWrestling)
+                    Answers(text: "1 - 3 часа в неделю", answerType: .sportSwimming),
+                    Answers(text: "4 - 6 часов в неделю", answerType: .sportChess),
+                    Answers(text: "1 - 2 часа в день", answerType: .sportWrestling),
+                    Answers(text: "3 - 4 часа в день", answerType: .sportHockey),
+                    Answers(text: "Всё свбодное время", answerType: .sportFootball)
                 ]
             ),
             Questions(
-                text: "Какую пищу предпочитаете?",
+                text: "Как вы обычно проводите своё свободное время?",
                 responseType: .multiple,
                 answers: [
-                    Answers(text: "Стейк", answerType: .sportSwimming),
-                    Answers(text: "Рыба", answerType: .sportFootball),
-                    Answers(text: "Морковка", answerType: .sportHockey),
-                    Answers(text: "Кукуруза", answerType: .sportChess),
-                    Answers(text: "Кукуруза", answerType: .sportWrestling)
+                    Answers(text: "Читаю книгу", answerType: .sportChess),
+                    Answers(text: "Играю в компьютер", answerType: .sportHockey),
+                    Answers(text: "Общаюсь с друзьями", answerType: .sportWrestling),
+                    Answers(text: "Сижу в интернете", answerType: .sportSwimming),
+                    Answers(text: "Гуляю", answerType: .sportFootball)
                 ]
             ),
             Questions(
-                text: "Какую пищу предпочитаете?",
+                text: "Вы любите работать в команде?",
                 responseType: .ranged,
                 answers: [
-                    Answers(text: "Стейк", answerType: .sportSwimming),
-                    Answers(text: "Рыба", answerType: .sportFootball),
-                    Answers(text: "Морковка", answerType: .sportHockey),
-                    Answers(text: "Кукуруза", answerType: .sportChess),
-                    Answers(text: "Кукуруза", answerType: .sportWrestling)
+                    Answers(text: "Избегаю", answerType: .sportChess),
+                    Answers(text: "Не в восторге", answerType: .sportWrestling),
+                    Answers(text: "Нейтрально", answerType: .sportSwimming),
+                    Answers(text: "Более чем", answerType: .sportHockey),
+                    Answers(text: "Обожаю", answerType: .sportFootball)
                 ]
             ),
             
@@ -108,7 +108,7 @@ extension Questions {
                 ]
             ),
             Questions(
-                text: "Какую пищу предпочитаете?",
+                text: "Вы любите ездить на машине?",
                 responseType: .ranged,
                 answers: [
                     Answers(text: "Ненавижу", answerType: .animalCat),
@@ -120,33 +120,34 @@ extension Questions {
             
             // MARK: - Questions for selectedTestType.pizza
             Questions(
-                text: "Какую пищу предпочитаете?",
+                text: "Какая ситуация наиболее точно описывает ваш повод для заказа пиццы?",
                 responseType: .single,
                 answers: [
-                    Answers(text: "Стейк", answerType: .pizzaMargarita),
-                    Answers(text: "Рыба", answerType: .pizzaPepperoni),
-                    Answers(text: "Морковка", answerType: .pizzaHawaiian),
-                    Answers(text: "Кукуруза", answerType: .pizzaMushrooms)
+                    Answers(text: "Купил пиво, нужна закуска", answerType: .pizzaPepperoni),
+                    Answers(text: "Еда для большой компании", answerType: .pizzaMushrooms),
+                    Answers(text: "Хочется чего-нибудь вкусного", answerType: .pizzaHawaiian),
+                    Answers(text: "Обед в офис", answerType: .pizzaMushrooms)
                 ]
             ),
             Questions(
-                text: "Какую пищу предпочитаете?",
+                text: "Я люблю когда пицца ... ?",
                 responseType: .multiple,
                 answers: [
-                    Answers(text: "Стейк", answerType: .pizzaMargarita),
-                    Answers(text: "Рыба", answerType: .pizzaPepperoni),
-                    Answers(text: "Морковка", answerType: .pizzaHawaiian),
-                    Answers(text: "Кукуруза", answerType: .pizzaMushrooms)
+                    Answers(text: "С мясом", answerType: .pizzaPepperoni),
+                    Answers(text: "Необычная", answerType: .pizzaHawaiian),
+                    Answers(text: "Вегетарианская", answerType: .pizzaMushrooms),
+                    Answers(text: "Недорогая", answerType: .pizzaMargarita),
+                    Answers(text: "Вкусная", answerType: .pizzaMargarita)
                 ]
             ),
             Questions(
-                text: "Какую пищу предпочитаете?",
+                text: "Как сильно вы любите сыр в пицце?",
                 responseType: .ranged,
                 answers: [
-                    Answers(text: "Стейк", answerType: .pizzaMargarita),
-                    Answers(text: "Рыба", answerType: .pizzaPepperoni),
-                    Answers(text: "Морковка", answerType: .pizzaHawaiian),
-                    Answers(text: "Кукуруза", answerType: .pizzaMushrooms)
+                    Answers(text: "Ненавижу", answerType: .pizzaMushrooms),
+                    Answers(text: "Не замечаю", answerType: .pizzaPepperoni),
+                    Answers(text: "Люблю", answerType: .pizzaHawaiian),
+                    Answers(text: "Обожаю", answerType: .pizzaMargarita)
                 ]
             )
         ]

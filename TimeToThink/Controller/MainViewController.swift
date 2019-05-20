@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
+    // MARK: - IB Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
 }

@@ -43,10 +43,10 @@ extension FinalTestViewController {
         let frequencyOfAnswerSorted = frequencyOfAnswer.sorted(by: {$0.value > $1.value})
         guard let mostFrequentAnswer = frequencyOfAnswerSorted.first?.key else { return }
         
-        outputResult(mostFrequentAnswer: mostFrequentAnswer)
+        outputResult(frequentAnswer: mostFrequentAnswer)
     }
     
-    func outputResult(mostFrequentAnswer: AnswerType) {
-        resultLabel.text = mostFrequentAnswer.definition
+    func outputResult(frequentAnswer: AnswerType) {
+        resultLabel.text = frequentAnswer.definition
     }
 }

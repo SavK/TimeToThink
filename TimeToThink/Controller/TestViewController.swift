@@ -13,6 +13,7 @@ class TestViewController: UIViewController {
     // MARK: - IB Outlets
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var currentInfoLabel: UILabel!
+    @IBOutlet weak var emojiNC: UIButton!
     @IBOutlet weak var questionProgressView: UIProgressView!
     
     @IBOutlet weak var singleStackView: UIStackView!
@@ -45,6 +46,9 @@ class TestViewController: UIViewController {
     let countSportQuestions = SelectedTestType.sport.countOfQuestions
     let countAnimalQuestions = SelectedTestType.animal.countOfQuestions
     let countPizzaQuestions = SelectedTestType.pizza.countOfQuestions
+    
+    // MARK: - Model declaration
+    var menu: Menu?
     
 }
 
@@ -134,6 +138,10 @@ extension TestViewController {
         // update User Interface & correct values
         correctCurrentValues()
         updateUI()
+        
+        // update Navigation Controller
+        self.title = menu?.nameOfTest
+        emojiNC.setTitle(menu?.emoji, for: .normal)
     }
 }
 

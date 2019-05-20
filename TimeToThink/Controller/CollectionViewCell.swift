@@ -9,6 +9,7 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
+    // MARK: - IB Outlets
     @IBOutlet weak var emoji: UILabel!
     @IBOutlet weak var nameOfTest: UILabel!
     @IBOutlet weak var countOfQuestions: UILabel!
