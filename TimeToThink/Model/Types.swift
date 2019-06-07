@@ -17,11 +17,11 @@ enum SelectedTestType {
     var countOfQuestions: Int {
         switch self {
         case .car:
-            return 3
+            return 4
         case .sport:
-            return 3
+            return 5
         case .animal:
-            return 3
+            return 4
         case .pizza:
             return 3
         }
@@ -75,7 +75,7 @@ enum AnswerType {
         case .carMinivan:
             return "Можете подыскивать себе автомобиль в кузове - минивен.   Он достаточно большой, что бы влезла вся семья, да ещё и для домашних питомцев место найдётся.   Отличный вариант для путешествий."
         case .carPikup:
-            return "Автомобиль в кузове пикап - идеальный для практичного человека, и это то, что вам нужно.  Без проблем можно возить что угодно и куда угодно, благодоря его проходимости."
+            return "Автомобиль в кузове пикап - идеальный для практичного человека, и это то, что вам нужно.  Благодоря его проходимости вы без проблем сможете возить что угодно и куда угодно."
             
         // sport answers definition
         case .sportSwimming:

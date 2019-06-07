@@ -50,6 +50,38 @@ class TestViewController: UIViewController {
     // MARK: - Model declaration
     var menu: Menu?
     
+    // MARK: - UIViewController Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // customize selected buttons in multiple stack view
+        for button in multipleButtons {
+            button.setImage(UIImage(named: "uncheckedBox80pt"), for: .normal)
+            button.setImage(UIImage(named: "checkedBox80pt"), for: .selected)
+        }
+        // customize buttons in single stack view
+        for button in singleButtons {
+            button.layer.cornerRadius = 10
+            button.tintColor = .white
+            button.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+        }
+        // customize labels in ranged stack view
+        for label in rangedLabels {
+            label.font = UIFont(name: label.font.fontName, size: 35)
+        }
+        
+        // customize answer buttons in multi & ranged stack views
+        rangedAnswerButton.layer.cornerRadius = 10
+        multiAnswerButton.layer.cornerRadius = 10
+        
+        // update User Interface & correct values
+        correctCurrentValues()
+        updateUI()
+        
+        // update Navigation Controller
+        self.title = menu?.nameOfTest
+        emojiNC.setTitle(menu?.emoji, for: .normal)
+    }
 }
 
 // MARK: - IB Actions
@@ -57,10 +89,10 @@ extension TestViewController {
     
     @IBAction func multiselectButtonPressed(sender: UIButton) {
         if sender.isSelected {
-            sender.setImage( UIImage(named:"unchecked.png"), for: .normal)
+            sender.setImage( UIImage(named:"uncheckedBox80pt"), for: .normal)
             sender.isSelected = false
         } else {
-            sender.setImage(UIImage(named:"checked.png"), for: .normal)
+            sender.setImage(UIImage(named:"checkedBox80pt"), for: .normal)
             sender.isSelected = true
         }
     }
@@ -112,36 +144,6 @@ extension TestViewController {
         guard segue.identifier == "finalTestSegue" else { return }
         guard let finalTestVC = segue.destination as? FinalTestViewController else { return }
         finalTestVC.finalAnswers = answersChoosen
-    }
-}
-
-// MARK: - UIViewController Methods
-extension TestViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // customize selected buttons in multiple stack view
-        for button in multipleButtons {
-            button.setImage(UIImage(named: "unchecked"), for: .normal)
-            button.setImage(UIImage(named: "checked"), for: .selected)
-        }
-        // customize buttons in single stack view
-        for button in singleButtons {
-            button.layer.cornerRadius = 10
-            button.tintColor = .white
-            button.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-        }
-        // customize answer buttons in multi & ranged stack views
-        rangedAnswerButton.layer.cornerRadius = 10
-        multiAnswerButton.layer.cornerRadius = 10
-        
-        // update User Interface & correct values
-        correctCurrentValues()
-        updateUI()
-        
-        // update Navigation Controller
-        self.title = menu?.nameOfTest
-        emojiNC.setTitle(menu?.emoji, for: .normal)
     }
 }
 
@@ -210,6 +212,10 @@ extension TestViewController {
         multipleStackView.isHidden = false
         for (label, answer) in zip (multipleLabels, answers) {
             label.text = answer.text
+        }
+        for button in multipleButtons {
+            button.isSelected = false
+            button.setImage(UIImage(named: "uncheckedBox80pt"), for: .normal)
         }
     }
     

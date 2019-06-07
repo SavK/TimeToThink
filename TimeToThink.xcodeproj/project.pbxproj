@@ -62,7 +62,6 @@
 				AD613582227F735F00B62607 /* DetailTestViewController.swift */,
 				AD613584227F738400B62607 /* TestViewController.swift */,
 				AD613586227F739900B62607 /* FinalTestViewController.swift */,
-				AD613589227F7C5900B62607 /* CollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -82,6 +81,7 @@
 		AD61358D227F7CCF00B62607 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AD613589227F7C5900B62607 /* CollectionViewCell.swift */,
 				AD723366227EC208002F9CDF /* Main.storyboard */,
 				AD72336B227EC209002F9CDF /* LaunchScreen.storyboard */,
 			);
@@ -92,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				AD723362227EC208002F9CDF /* AppDelegate.swift */,
-				AD723369227EC209002F9CDF /* Assets.xcassets */,
 				AD72336E227EC209002F9CDF /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -118,12 +117,21 @@
 		AD723361227EC208002F9CDF /* TimeToThink */ = {
 			isa = PBXGroup;
 			children = (
-				AD61358B227F7C6E00B62607 /* Model */,
-				AD61358D227F7CCF00B62607 /* View */,
 				AD613588227F73A600B62607 /* Controller */,
+				AD61358B227F7C6E00B62607 /* Model */,
+				ADF74AA022AA559C009C7AF3 /* Resources */,
 				AD61358E227F7CE700B62607 /* Supporting Files */,
+				AD61358D227F7CCF00B62607 /* View */,
 			);
 			path = TimeToThink;
+			sourceTree = "<group>";
+		};
+		ADF74AA022AA559C009C7AF3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD723369227EC209002F9CDF /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

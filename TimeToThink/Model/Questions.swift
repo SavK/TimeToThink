@@ -28,7 +28,7 @@ extension Questions {
                 ]
             ),
             Questions(
-                text: "Кем вы работаете?",
+                text: "Какая профессия вам ближе?",
                 responseType: .multiple,
                 answers: [
                     Answers(text: "Программистом", answerType: .carSedan),
@@ -49,17 +49,37 @@ extension Questions {
                     Answers(text: "👨‍👩‍👧‍👦", answerType: .carMinivan)
                 ]
             ),
+            Questions(
+                text: "Какая у вас зароботная плата?",
+                responseType: .single,
+                answers: [
+                    Answers(text: "до 499$", answerType: .carHatchback),
+                    Answers(text: "500 - 999$", answerType: .carSedan),
+                    Answers(text: "1000 - 2000$", answerType: .carPikup),
+                    Answers(text: "Больше 2000$", answerType: .carSuv)
+                ]
+            ),
             
             // MARK: - Questions for selectedTestType.sport
             Questions(
                 text: "Cколько времени вы сможете уделять спорту?",
                 responseType: .single,
                 answers: [
-                    Answers(text: "1 - 3 часа в неделю", answerType: .sportSwimming),
-                    Answers(text: "4 - 6 часов в неделю", answerType: .sportChess),
-                    Answers(text: "1 - 2 часа в день", answerType: .sportWrestling),
-                    Answers(text: "3 - 4 часа в день", answerType: .sportHockey),
+                    Answers(text: "Минамально", answerType: .sportSwimming),
+                    Answers(text: "Пару часов в неделю", answerType: .sportChess),
+                    Answers(text: "Пару дней в неделю", answerType: .sportWrestling),
                     Answers(text: "Всё свбодное время", answerType: .sportFootball)
+                ]
+            ),
+            Questions(
+                text: "Вы любите бегать?",
+                responseType: .ranged,
+                answers: [
+                    Answers(text: "💔", answerType: .sportChess),
+                    Answers(text: "Не в восторге", answerType: .sportWrestling),
+                    Answers(text: "Нейтрально", answerType: .sportSwimming),
+                    Answers(text: "Более чем", answerType: .sportHockey),
+                    Answers(text: "❤️", answerType: .sportFootball)
                 ]
             ),
             Questions(
@@ -77,11 +97,21 @@ extension Questions {
                 text: "Вы любите работать в команде?",
                 responseType: .ranged,
                 answers: [
-                    Answers(text: "Избегаю", answerType: .sportChess),
+                    Answers(text: "🤬", answerType: .sportChess),
                     Answers(text: "Не в восторге", answerType: .sportWrestling),
                     Answers(text: "Нейтрально", answerType: .sportSwimming),
                     Answers(text: "Более чем", answerType: .sportHockey),
-                    Answers(text: "Обожаю", answerType: .sportFootball)
+                    Answers(text: "😍", answerType: .sportFootball)
+                ]
+            ),
+            Questions(
+                text: "Какая у вас физическая подготовка?",
+                responseType: .single,
+                answers: [
+                    Answers(text: "Раньше спортом не занимался", answerType: .sportChess),
+                    Answers(text: "Подготовки нет, но есть желание", answerType: .sportSwimming),
+                    Answers(text: "Бегаю по вечерам", answerType: .sportHockey),
+                    Answers(text: "Хожу на турники, брусья во дворе", answerType: .sportWrestling),
                 ]
             ),
             
@@ -102,19 +132,30 @@ extension Questions {
                 answers: [
                     Answers(text: "Плавать", answerType: .animalTurtle),
                     Answers(text: "Спать", answerType: .animalCat),
-                    Answers(text: "Обниматься", answerType: .animalRabbit),
                     Answers(text: "Есть", answerType: .animalDog),
+                    Answers(text: "Обниматься", answerType: .animalRabbit),
                     Answers(text: "Гулять", answerType: .animalDog)
+                ]
+            ),
+            Questions(
+                text: "какой подарок вы бы хотели получить?",
+                responseType: .multiple,
+                answers: [
+                    Answers(text: "Не люблю подарки", answerType: .animalCat),
+                    Answers(text: "Любой", answerType: .animalCat),
+                    Answers(text: "Красивый", answerType: .animalRabbit),
+                    Answers(text: "Запоминающийся", answerType: .animalTurtle),
+                    Answers(text: "не важно, главное внимание", answerType: .animalDog)
                 ]
             ),
             Questions(
                 text: "Вы любите ездить на машине?",
                 responseType: .ranged,
                 answers: [
-                    Answers(text: "Ненавижу", answerType: .animalCat),
+                    Answers(text: "💔", answerType: .animalCat),
                     Answers(text: "Нервничаю", answerType: .animalRabbit),
                     Answers(text: "Не замечаю", answerType: .animalTurtle),
-                    Answers(text: "Обожаю", answerType: .animalDog)
+                    Answers(text: "❤️", answerType: .animalDog)
                 ]
             ),
             
@@ -144,10 +185,10 @@ extension Questions {
                 text: "Как сильно вы любите сыр в пицце?",
                 responseType: .ranged,
                 answers: [
-                    Answers(text: "Ненавижу", answerType: .pizzaMushrooms),
+                    Answers(text: "🤮", answerType: .pizzaMushrooms),
                     Answers(text: "Не замечаю", answerType: .pizzaPepperoni),
                     Answers(text: "Люблю", answerType: .pizzaHawaiian),
-                    Answers(text: "Обожаю", answerType: .pizzaMargarita)
+                    Answers(text: "😍", answerType: .pizzaMargarita)
                 ]
             )
         ]

@@ -11,7 +11,6 @@ import UIKit
 class MainViewController: UIViewController {
     // MARK: - IB Outlets
     @IBOutlet weak var collectionView: UICollectionView!
-    
 }
 
 // MARK: - UIViewcontroller methods
@@ -110,3 +109,4 @@ extension MainViewController {
         detailTestVC.currentTestIndex = selectedCellIndex
     }
 }
+
