@@ -9,12 +9,11 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
     // MARK: - IB Outlets
     @IBOutlet weak var collectionView: UICollectionView!
-}
-
-// MARK: - UIViewcontroller methods
-extension MainViewController {
+    
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,24 +22,22 @@ extension MainViewController {
     }
 }
 
-// MARK: - unwind from FinishTestViewController
-extension MainViewController {
-    @IBAction func unwindToMain(unwindSegue: UIStoryboardSegue){
-    }
-}
-
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
+        
         return Menu.loadData().count
     }
-    // customizing cell (add round coreners, shadow), load data in cell
+    
+    /// Customizing cell (add round coreners, shadow), load data in cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                          for: indexPath) as? CollectionViewCell {
-            cell.menu = Menu.loadData()[indexPath.row]
+            
+            let menu = Menu.loadData()[indexPath.row]
+            CellManager.configure(cell, with: menu)
             
             cell.layer.cornerRadius = 20
             cell.backgroundColor = .white
@@ -59,48 +56,53 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return UICollectionViewCell()
     }
     
-    // send index of selected cell to DetailTestViewController
+    /// Send index of selected cell to DetailTestViewController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCellIndex = indexPath.row
         self.performSegue(withIdentifier: "detailTestViewController", sender: selectedCellIndex)
     }
 }
 
-// MARK: - customizing of cell sizes (relative to screen size)
+// MARK: - Customizing of cell sizes (relative to screen size)
 extension MainViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let sideOfSquare = (collectionView.bounds.width - (3 * 20))/2
         let cellSize = CGSize(width: sideOfSquare, height: sideOfSquare)
         return cellSize
     }
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat
-    {
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
         return 20
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets
-    {
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        
         let sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         return sectionInset
     }
 }
 
-// MARK: - prepare for send data of selected cell to DetailTestViewController
+// MARK: - Navigation
 extension MainViewController {
+    
+    /// Prepare for send data of selected cell to DetailTestViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard segue.identifier == "detailTestViewController" else { return }
         guard let destinationNC = segue.destination as? UINavigationController
             else { return }
+        
         guard let detailTestVC = destinationNC.topViewController as? DetailTestViewController
             else { return }
+        
         let selectedCellIndex = sender as! Int
         ///load data of selected test
         detailTestVC.menu = Menu.loadData()[selectedCellIndex]
@@ -108,5 +110,8 @@ extension MainViewController {
         /// index of selected test
         detailTestVC.currentTestIndex = selectedCellIndex
     }
+    
+    /// Unwind from FinishTestViewController
+    @IBAction func unwindToMain(unwindSegue: UIStoryboardSegue){}
 }
 

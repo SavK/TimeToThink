@@ -9,29 +9,28 @@
 import UIKit
 
 class FinalTestViewController: UIViewController {
+    
     // MARK: - IB Outlets
     @IBOutlet weak var backendView: UIView!
     @IBOutlet weak var resultLabel: UILabel!
     
-    // MARK: -  Stored Properties
+    // MARK: - Properties
     /// Array of answers choosen by user
     var finalAnswers: [Answers]!
-}
-
-// MARK: - UIViewController Methods
-extension FinalTestViewController {
+    
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        // customize backend view
-        backendView.layer.cornerRadius = 10
-        
-        //output of the result
+        /// Customize backend view
+        backendView.layer.cornerRadius = 20
+        /// Output of the result
         updateResult()
     }
 }
 
-// MARK: - calculation of result
+// MARK: - Calculation of result
 extension FinalTestViewController {
+    
     func updateResult() {
         var frequencyOfAnswer = [AnswerType?: Int]()
         let finalResponseTypes = finalAnswers.map { $0.answerType }

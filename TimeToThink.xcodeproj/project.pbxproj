@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD4134E222EC687E00FE9FBF /* CellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4134E122EC687E00FE9FBF /* CellManager.swift */; };
 		AD613581227F72FE00B62607 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD613580227F72FE00B62607 /* MainViewController.swift */; };
 		AD613583227F735F00B62607 /* DetailTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD613582227F735F00B62607 /* DetailTestViewController.swift */; };
 		AD613585227F738400B62607 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD613584227F738400B62607 /* TestViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD4134E122EC687E00FE9FBF /* CellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellManager.swift; sourceTree = "<group>"; };
 		AD613580227F72FE00B62607 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AD613582227F735F00B62607 /* DetailTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTestViewController.swift; sourceTree = "<group>"; };
 		AD613584227F738400B62607 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD4134E022EC686600FE9FBF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AD4134E122EC687E00FE9FBF /* CellManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		AD613588227F73A600B62607 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		AD723361227EC208002F9CDF /* TimeToThink */ = {
 			isa = PBXGroup;
 			children = (
+				AD4134E022EC686600FE9FBF /* Managers */,
 				AD613588227F73A600B62607 /* Controller */,
 				AD61358B227F7C6E00B62607 /* Model */,
 				ADF74AA022AA559C009C7AF3 /* Resources */,
@@ -213,6 +224,7 @@
 				AD61358A227F7C5900B62607 /* CollectionViewCell.swift in Sources */,
 				AD8BC868228FDAA80093D8DE /* Types.swift in Sources */,
 				AD723363227EC208002F9CDF /* AppDelegate.swift in Sources */,
+				AD4134E222EC687E00FE9FBF /* CellManager.swift in Sources */,
 				AD613585227F738400B62607 /* TestViewController.swift in Sources */,
 				AD8BC8662288B51A0093D8DE /* Questions.swift in Sources */,
 				AD7B991B2282954800EB7C93 /* DetailTest.swift in Sources */,

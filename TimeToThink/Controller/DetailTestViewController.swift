@@ -20,26 +20,27 @@ class DetailTestViewController: UIViewController {
     var detailTest: DetailTest?
     var menu: Menu?
     
-    
     // MARK: - Stored Properties
     var currentTestIndex = 0
     
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         startButton.layer.cornerRadius = 10
         
-        //  customize navigation controller (change color and remove border)
+        ///  Customize navigation controller (change color and remove border)
         self.navigationController?.navigationBar.backgroundColor = self.view.backgroundColor
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        // load & customize data
+        /// Load & customize data
         loadDataIntoScreen()
         changeFontSize(width: view.bounds.width)
     }
 }
 
-// MARK: - load image, preview text, title & emoji of selected cell
+// MARK: - Load image, preview text, title & emoji of selected cell
 extension DetailTestViewController {
+    
     func loadDataIntoScreen() {
         guard let imageName = detailTest?.imageName else { return }
         previewImage.image = UIImage(named: imageName)
@@ -49,12 +50,14 @@ extension DetailTestViewController {
     }
 }
 
-// MARK: - change font size
+// MARK: - Change font size
 extension DetailTestViewController {
+    
     func changeFontSize(width: CGFloat) {
         if width > 320 {
             previewTextLabel.font = UIFont(name: previewTextLabel.font.fontName,
                                            size: 18)
+            
             let font = UIFont(name: "Apple SD Gothic Neo", size: 20)!
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
             emojiNC.titleLabel?.font = font
@@ -62,6 +65,7 @@ extension DetailTestViewController {
         else {
             previewTextLabel.font = UIFont(name: previewTextLabel.font.fontName,
                                            size: 15)
+            
             let font = UIFont(name: "Apple SD Gothic Neo", size: 15)!
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
             emojiNC.titleLabel?.font = font
@@ -76,6 +80,7 @@ extension DetailTestViewController {
         if segue.identifier == "runTestSegue" {
             guard let testVC = segue.destination as? TestViewController
                 else { return }
+            
             testVC.currentTestIndex = currentTestIndex
             testVC.menu = menu
         }
@@ -84,10 +89,10 @@ extension DetailTestViewController {
         performSegue(withIdentifier: "runTestSegue", sender: nil)
     }
     
-    // MARK: - unwind from TestViewController
+    /// Unwind from TestViewController
     @IBAction func unwindToDetailTestVC(segue: UIStoryboardSegue){ }
     
-    // MARK: - back to MainViewController
+    /// Back to MainViewController
     @IBAction func backToMainScreen() {
         dismiss(animated: true, completion: nil)
     }
